@@ -14,6 +14,7 @@ const UnusualPage = () => {
   const dispatch = useDispatch();
  const [unUsual, setUnUsual] = React.useState([])
   const {category } = useSelector(({filters})=>filters ); //тут нужно будет через redux изменить localhost на новый
+  const [value, setValues] = React.useState(''); //поиск
 
 
  React.useEffect(() => {
@@ -30,7 +31,17 @@ const UnusualPage = () => {
 
   return (
     <div>
+<div className="searchContainer">
+    <div className="form">
+        <input type="text" id="search" placeholder="Seach..."
+          value={value}
+          onChange={(event) => setValues(event.target.value)
+          }
+        ></input>
+        <button id="button">Search</button>
 
+
+</div></div>
  
 <Categories 
 activeCategory = {category}
@@ -40,7 +51,9 @@ items = {categoryNames}/>
 
 <h2 className="content__title">All</h2>
 
-{unUsual.map((obj) => (
+{unUsual
+.filter((obj) => obj.name.toLowerCase().includes(value.toLowerCase()))
+.map((obj) => (
 
   <div key={obj.id} className="recom-block">
 

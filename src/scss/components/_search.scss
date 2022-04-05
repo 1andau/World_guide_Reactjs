@@ -9,6 +9,9 @@
   display: flex;
   border: 3px solid #4b0f83;
   border-radius: 15px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .searchContainer input[type="text"]{
   flex-grow: 1;

@@ -5,7 +5,6 @@ import {Home, Cart} from './pages';
 import { Header, UnusualPage, ImpressionPage, Wishlist, Reccomended } from './components';
 import Signin from './auth/Signin';
 import NavBar from './components/NavBar';
-import { CardContent } from './components';
 
 function App() {
 

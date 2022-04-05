@@ -12,7 +12,7 @@ const categoryNames = ['Рестораны','Развлечения', 'Мест�
   const dispatch = useDispatch();
 
   const [recom, setRecom] = React.useState([]); 
-
+  const [value, setValues] = React.useState(''); //поиск
   const {category } = useSelector(({filters})=>filters ); //тут нужно будет через redux изменить localhost на новый
 
 
@@ -32,6 +32,19 @@ const onSelectCategory = React.useCallback((index) => {
    return (
 <div>
 
+<div className="searchContainer">
+    <div className="form">
+        <input type="text" id="search" placeholder="Seach..."
+          value={value}
+          onChange={(event) => setValues(event.target.value)
+          }
+        ></input>
+        <button id="button">Search</button>
+
+
+</div></div>
+
+
 <Categories 
 activeCategory = {category}
 onClickCategory = {onSelectCategory}
@@ -39,7 +52,10 @@ items = {categoryNames}/>
 
 <h2 className="content__title">All</h2>
 
-{recom.map((obj) => (
+{recom
+.filter((obj) => obj.name.toLowerCase().includes(value.toLowerCase()))
+
+.map((obj) => (
 
 <div key={obj.id} className="recom-block">
 

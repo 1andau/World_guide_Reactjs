@@ -3,7 +3,10 @@ import Button from './Button';
  import {Link} from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import NavBar from './NavBar';
-import SearchBar from './search/LiveSearch';
+import LiveSearch from './search/LiveSearch';
+
+
+
 function Header(){
   const { totalCount } = useSelector(({cart}) => cart);
     return(
@@ -13,8 +16,11 @@ function Header(){
 
 
    <NavBar/>
-{/* <Search /> */}
-<SearchBar />
+
+
+
+
+   
 
  <div className="header__cart">
 
